@@ -1,36 +1,34 @@
+<!-- /src/main/resources/static/index.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/app.css" />
-    <title>SPA</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringbootJS App</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="/" data-link>Home</a>
+        <a href="/about" data-link>About</a>
+    </nav>
 
-  <body>
-    <div class="container">
-      <nav class="sidebar">
-        <h1>Migration Tool</h1>
-        <ul>
-          <li><a href="#/home" class="nav-link">Home</a></li>
-          <li>
-            <a href="#/schema-migration" class="nav-link">Schema Migration</a>
-          </li>
-          <li>
-            <a href="#/data-migration" class="nav-link">Data Migration</a>
-          </li>
-          <li><a href="#/db-config" class="nav-link">db Configuration</a></li>
-        </ul>
-        <div class="logout-container">
-          <button id="logoutButton" class="logout-button">Logout</button>
-        </div>
-      </nav>
-      <div class="content" id="content"></div>
-      <div class="footer" id="footer"></div>
-    </div>
-    <script src="/js/axios.js" defer></script>
-    <script src="/js/main.js" defer></script>
-    <script src="/js/app.js" defer></script>
-  </body>
+    <div id="app"></div> <!-- Dynamic content will be loaded here -->
+
+    <!-- Load the main.js entry point -->
+    <script type="module" src="/scripts/main.js"></script>
+
+    <!-- Register the service worker for offline functionality -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
 </html>
