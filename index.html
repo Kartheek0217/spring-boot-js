@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <title>SPA</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="sidebar">
+        <h1>Migration Tool</h1>
+        <ul>
+          <li><a href="#/home" class="nav-link">Home</a></li>
+          <li>
+            <a href="#/schema-migration" class="nav-link">Schema Migration</a>
+          </li>
+          <li>
+            <a href="#/data-migration" class="nav-link">Data Migration</a>
+          </li>
+          <li><a href="#/db-config" class="nav-link">db Configuration</a></li>
+        </ul>
+        <div class="logout-container">
+          <button id="logoutButton" class="logout-button">Logout</button>
+        </div>
+      </nav>
+      <div class="content" id="content"></div>
+      <div class="footer" id="footer"></div>
+    </div>
+    <script src="/js/axios.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/app.js" defer></script>
+  </body>
+</html>
